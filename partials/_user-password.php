@@ -1,15 +1,5 @@
 <?php
-include __DIR__ . '/functions.php';
-$numb_of_char = $_GET['char'];
-
-if (!empty($numb_of_char)) {
-    header('Location: ./partials/_user-password.php');
-}
-
-session_start();
-$_SESSION['psw'] = generate_psw()
-
-
+session_start()
     ?>
 
 <!DOCTYPE html>
@@ -33,22 +23,10 @@ $_SESSION['psw'] = generate_psw()
 </head>
 
 <body>
-    <div class="mt-5 text-center">
-        <div class="card w-50 m-auto">
-            <div class="card-header">Lunghezza Password da generare</div>
-            <div class="card-body">
-                <form method="get">
-                    <input type="number" name="char" id="char" class="form-control" min="1" max="20">
-                    <button class="btn btn-primary mt-3">Genera</button>
-                </form>
-                <h1>
-                    La tua password è:
-                    <?php echo generate_psw() ?>
-                </h1>
-
-            </div>
-        </div>
-    </div>
+    <h1 class="text-success">Password generata con succeso</h1>
+    <h2>La password generata è:
+        <?php echo $_SESSION['psw'] ?>
+    </h2>
 </body>
 
 </html>
